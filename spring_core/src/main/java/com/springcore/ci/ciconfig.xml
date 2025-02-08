@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Bean for Certi -->
+    <bean name="certi" class="com.springcore.ci.Certi" c:certiName="Java Developer" />
+
+    <!-- Bean for Person -->
+    <bean class="com.springcore.ci.Person" name="person" 
+          p:personID="101" 
+          p:name="Raj Mahajan" 
+          p:certi-ref="certi">
+        <!-- Define the list property -->
+        <property name="list">
+            <list>
+                <value>Coding</value>
+                <value>Reading Books</value>
+                <value>Traveling</value>
+            </list>
+        </property>
+    </bean>
+      
+    <bean class="com.springcore.ci.Addition" name="add">
+    	<constructor-arg value="25" type="int" index="1" />
+    	<constructor-arg value="15" type="int" index="0" />
+    </bean>
+    
+   
+
+</beans>
+
+
+
+
+
+
+
+
+        <!--  this is our bean   
+        
+        <bean class="com.springcore.ci.Certi" name="cer">
+        	<constructor-arg value="Java Developer" />
+        </bean>   
+        
+        <bean class="com.springcore.ci.Certi" name="cer" c:name="Python Programming Langauge"></bean>
+        
+        -->
+         
+         
+        
+        <!--
+        <bean class="com.springcore.ci.Person" name="person">
+        	<constructor-arg>
+        		<value>101</value>
+        	</constructor-arg>
+        	
+        	<constructor-arg value="Pranav Mahajan" type="String" />
+        	
+        	<constructor-arg ref="cer" />
+        </bean>  
+        
+        
+		<bean class="com.springcore.ci.Person" name="person" c:personID="101" c:name="Raj Mahajan" c:certi-ref="cer" />
+        <bean class="com.springcore.ci.Person" name="person" p:personID="101" p:name="Raj Mahajan" p:certi-ref="cer" />
+        
+
+    Bean for Person 
+    <bean id="person" class="com.springcore.ci.Person">
+        <constructor-arg value="101" /> 
+        <constructor-arg value="Pranav Mahajan" /> 
+        <constructor-arg ref="certi" /> 
+        <constructor-arg>
+            <list>
+                <value>Reading</value>
+                <value>Traveling</value>
+                <value>Programming</value>
+            </list>
+        </constructor-arg>
+    </bean>
+    	
+    	
+
+    <bean id="cer" class="com.springcore.ci.Certi" p:certiName="Spring Framework Expert" />
+
+
+    <bean id="person" class="com.springcore.ci.Person" 
+          p:personID="101" 
+          p:name="Raj Mahajan" 
+          p:certi-ref="cer" 
+          p:list>
+        <list>
+            <value>Coding</value>
+            <value>Reading Books</value>
+            <value>Traveling</value>
+        </list>
+    </bean>
+    	
+    	
+         -->
